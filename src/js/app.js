@@ -30,11 +30,9 @@ function addTask(event) {
 function renderTasks() {
   list.innerHTML = '';
 
-  if (tasks.length === 0) {
-    emptyMessage.style.display = 'block';
-  } else {
-    emptyMessage.style.display = 'none';
-  }
+  const hasTasks = tasks.length > 0;
+  emptyMessage.style.display = hasTasks ? 'none' : 'block';
+  emptyMessage.textContent = 'Nenhuma tarefa cadastrada.';
 
   tasks.forEach(function (task) {
     const li = document.createElement('li');
