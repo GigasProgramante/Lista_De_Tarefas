@@ -26,7 +26,6 @@ function addTask(event) {
   renderTasks();
 }
 
-
 function renderTasks() {
   list.innerHTML = '';
 
@@ -47,6 +46,24 @@ function renderTasks() {
   });
 }
 
+function toggleTask(event) {
+  if (event.target.tagName !== 'LI') {
+    return;
+  }
+
+  const taskId = Number(event.target.dataset.id);
+
+  tasks = tasks.map(function (task) {
+    if (task.id === taskId) {
+      task.completed = !task.completed;
+    }
+    return task;
+  });
+
+  renderTasks();
+}
+
 form.addEventListener('submit', addTask);
+list.addEventListener('click', toggleTask);
 
 renderTasks();
