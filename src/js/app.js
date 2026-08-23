@@ -1,19 +1,15 @@
-// Seleção dos elementos do DOM
 const form = document.getElementById('task-form');
 const input = document.getElementById('task-input');
 const list = document.getElementById('task-list');
 const emptyMessage = document.getElementById('empty-message');
 
-// Array que vai armazenar as tarefas
 let tasks = [];
 
-// Função para adicionar uma nova tarefa
 function addTask(event) {
   event.preventDefault();
 
   const taskText = input.value.trim();
 
-  // Não permite adicionar tarefa vazia
   if (taskText === '') {
     return;
   }
@@ -25,9 +21,34 @@ function addTask(event) {
   };
 
   tasks.push(newTask);
-  input.value = ''; 
+  input.value = '';
 
-  renderTasks(); // atualiza a tela (função que  ainda vou criar)
+  renderTasks();
+}
+
+
+function renderTasks() {
+  list.innerHTML = '';
+
+  if (tasks.length === 0) {
+    emptyMessage.style.display = 'block';
+  } else {
+    emptyMessage.style.display = 'none';
+  }
+
+  tasks.forEach(function (task) {
+    const li = document.createElement('li');
+    li.textContent = task.text;
+    li.dataset.id = task.id;
+
+    if (task.completed) {
+      li.classList.add('completed');
+    }
+
+    list.appendChild(li);
+  });
 }
 
 form.addEventListener('submit', addTask);
+
+renderTasks();
