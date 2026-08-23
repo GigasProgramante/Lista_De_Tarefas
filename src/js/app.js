@@ -6,3 +6,28 @@ const emptyMessage = document.getElementById('empty-message');
 
 // Array que vai armazenar as tarefas
 let tasks = [];
+
+// Função para adicionar uma nova tarefa
+function addTask(event) {
+  event.preventDefault();
+
+  const taskText = input.value.trim();
+
+  // Não permite adicionar tarefa vazia
+  if (taskText === '') {
+    return;
+  }
+
+  const newTask = {
+    id: Date.now(),
+    text: taskText,
+    completed: false
+  };
+
+  tasks.push(newTask);
+  input.value = ''; 
+
+  renderTasks(); // atualiza a tela (função que  ainda vou criar)
+}
+
+form.addEventListener('submit', addTask);
