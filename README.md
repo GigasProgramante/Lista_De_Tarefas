@@ -7,7 +7,7 @@ Aplicação web simples para organizar tarefas do dia a dia. O usuário pode adi
 - HTML5
 - CSS3
 - JavaScript
-- Live Serve
+- Live Server
 
 ## Como executar
 
