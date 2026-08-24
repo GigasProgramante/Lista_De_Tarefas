@@ -1,33 +1,32 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lista de Tarefas</title>
-  <link rel="stylesheet" href="style.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Lista de Tarefas</title>
+	<link rel="stylesheet" href="css/style.css">
+	<script src="js/app.js" defer></script>
 </head>
 <body>
+	<main class="container">
+		<h1>Lista de Tarefas</h1>
+		<p class="subtitle">Organize suas tarefas do dia</p>
 
-  <div class="container">
+		<form id="task-form">
+			<label for="task-input" hidden>Nova tarefa</label>
+			<input
+				type="text"
+				id="task-input"
+				placeholder="Digite uma nova tarefa"
+				autocomplete="off"
+				required
+			>
+			<button type="submit">Adicionar</button>
+		</form>
 
-    <h1>Lista de Tarefas</h1>
-
-    <form id="task-form">
-      <input
-        type="text"
-        id="task-input"
-        placeholder="Digite uma nova tarefa..."
-      >
-      <button type="submit">Adicionar</button>
-    </form>
-
-    <p id="empty-message">Nenhuma tarefa cadastrada.</p>
-
-    <ul id="task-list"></ul>
-
-  </div>
-
-  <script src="script.js"></script>
+		<p id="empty-message">Nenhuma tarefa cadastrada.</p>
+		<ul id="task-list" aria-live="polite"></ul>
+	</main>
 </body>
 </html>
         
